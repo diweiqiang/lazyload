@@ -56,6 +56,51 @@
             }
         });
     });
+
+
+    //测试位置代码
+    /*
+     *{
+     margin:0;
+     padding:0;
+     }
+     .div1{
+    width:200px;
+    height:200px;
+    }
+     <div class="div1"></div>
+     <div class="div1"></div>
+     <div class="div1"></div>
+     <div class="div1"></div>
+     <div class="div1"></div>
+     <div class="div1"></div>
+     <div class="div1"></div>
+     <div class="div1"></div>
+     <div class="div1"></div>
+
+     <button>click</button>
+
+     $('.div1').each(function (index,ele) {
+     var rand=Math.floor((Math.random()*256));
+     rand=rand.toString(16);
+     if(rand.length<2){
+     rand='0'+rand;
+     }
+     var color='#65a3'+rand;
+
+     $(ele).css('background',color);
+
+     ele.addEventListener('click',function (e) {
+     console.log(this.getBoundingClientRect());
+     });
+     });
+
+     $('button').click(function (e) {
+     //console.log($('.div1:last-child'));
+     console.log($('.div1:nth-child(3)').offset());
+
+     });
+    * */
 </script>
 </body>
 </html>
