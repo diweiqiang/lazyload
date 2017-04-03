@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            margin:10px auto;
+            width:350px;
+        }
+        ul{
+            list-style: none;
+            padding:0;
+            margin:0;
+        }
+        li{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li><img src="image/500x300_1.jpg" width="100%"></li>
+        <li><img src="image/500x300_2.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_3.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_4.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_5.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_6.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_7.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_8.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_5.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_6.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_7.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_8.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_5.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_6.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_7.jpg" width="100%"></li>
+        <li><img data-imgsrc="image/500x300_8.jpg" width="100%"></li>
+    </ul>
+</div>
+
+<script src="jquery-3.1.0.js"></script>
+<script>
+    $(window).scroll(function () {
+        $('li[isLoaded!="1"]').each(function () {
+            //offset()的top和left是基于document文档的而不是基于浏览器窗口的，和getClientRect的
+            //top，left是不一样的,那个实现起来应该比这个逻辑要更简单，因为那个是相对的，只需top《=window的height就行；
+            var offsetTop=$(this).offset().top;
+            var scrollTop=$(window).scrollTop();
+            var winHeight=$(window).height();
+
+            if(scrollTop+winHeight>=offsetTop){
+                var src=$(this).find('img').attr('data-imgsrc');
+                $(this).find('img').attr('src',src).parent().attr('isLoaded','1');
+            }
+        });
+    });
+</script>
+</body>
+</html>
